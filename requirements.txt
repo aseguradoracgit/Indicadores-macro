@@ -1,5 +1,4 @@
 dash
-dash.dependencies
 plotly.express
 pandas
 dash_bootstrap_components
