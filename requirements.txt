@@ -3,9 +3,8 @@ plotly.express
 pandas
 dash_bootstrap_components
 datetime
-plotly.graph_objects
-dateutil.relativedelta
-scipy.stats
+dateutil
+scipy
 numpy
 locale
 openpyxl
