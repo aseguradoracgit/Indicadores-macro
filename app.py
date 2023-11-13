@@ -12,7 +12,6 @@ import plotly.io as pio
 from pandas.tseries.offsets import MonthEnd
 import base64
 import plotly.graph_objects as go
-import dash_mantine_components as dmc
 from dateutil.relativedelta import relativedelta
 from scipy.stats import linregress
 import numpy as np
