@@ -170,7 +170,7 @@ app.layout =  html.Div([
          'Administración pública y defensa',
          'Enseñanza',
          'Salud',
-         'Otras actividades de servicios'], value="IMAE")),
+         'Otras actividades de servicios'], value="IMAE",  style={"width": "50%"})),
     html.P("Rango de fechas:"), html.Div(  dcc.Dropdown(
         id = 'timeframe_dropdown3', 
         options = [
@@ -276,7 +276,7 @@ def display_value(moneda, start_date, end_date):
     
     
     fig= px.line(int2,color="Tipo",x="Fecha",y="Tasa", 
-                width=1000,height=500,template="simple_white")
+                width=1300,height=500,template="simple_white")
     fig.layout.yaxis.tickformat = ',.2%'
     
     
@@ -301,7 +301,7 @@ def display_value(moneda, start_date, end_date):
                     t=0, #top margin
                 )
             )
-    fig4.update_layout(height=150, width=230, template = {'data' : {'indicator': [{
+    fig4.update_layout(height=150, width=330, template = {'data' : {'indicator': [{
         'mode' : "delta",
         'delta' : {'reference': 0, 'valueformat':'.3%',}}]
                          }})
@@ -322,7 +322,7 @@ def display_value(moneda, start_date, end_date):
                     t=0, #top margin
                 )
             )
-    fig5.update_layout(height=150, width=230, template = {'data' : {'indicator': [{
+    fig5.update_layout(height=150, width=330, template = {'data' : {'indicator': [{
         'mode' : "delta",
         'delta' : {'reference': 0, 'valueformat':'.3%'}}]
                          }})
@@ -345,7 +345,7 @@ def display_value(moneda, start_date, end_date):
             )
 
     
-    fig2.update_layout(height=150, width=230, template = {'data' : {'indicator': [{
+    fig2.update_layout(height=150, width=330, template = {'data' : {'indicator': [{
         'mode' : "delta",
         'delta' : {'reference': 0, 'valueformat':'.3%'}}]
                          }})
@@ -366,7 +366,7 @@ def display_value(moneda, start_date, end_date):
                 )
             )
     
-    fig3.update_layout(height=150, width=230, template = {'data' : {'indicator': [{
+    fig3.update_layout(height=150, width=330, template = {'data' : {'indicator': [{
         'mode' : "delta",
         'delta' : {'reference': 0, 'valueformat':'.3%'}}]
                          }})
@@ -410,13 +410,13 @@ def display_value(opcion, start_date, end_date):
     
     if opcion=="Serie original":
         fig=px.line(inf2, x="Fecha", y="Inflación", 
-                width=1000,height=500, template="simple_white")
+                width=1300,height=500, template="simple_white")
         fig.add_hline(y=0.03, line_dash="dash", line_color="red",opacity=1, line_width=2)
         fig.add_hline(y=0.05, line_dash="dash", line_color="red",opacity=1, line_width=2)
         fig.layout.yaxis.tickformat = ',.2%'
     else: 
         fig=px.line(inf2, x="Mes", y="Inflación", color="Año", markers=True, 
-                width=1000,height=500, template="simple_white")
+                width=1300,height=500, template="simple_white")
         fig.add_hline(y=0.03, line_dash="dash", line_color="red",opacity=1, line_width=2)
         fig.add_hline(y=0.05, line_dash="dash", line_color="red",opacity=1, line_width=2)
         fig.layout.yaxis.tickformat = ',.2%'
@@ -475,7 +475,7 @@ def display_value(serie, start_date, end_date):
     imae2["1 sigma"]=imae2["Pronosticado"]+std*1
     imae2["2 sigma"]=imae2["Pronosticado"]+std*2
     imae2["3 sigma"]=imae2["Pronosticado"]+std*3
-    fig=px.line(imae2,width=1000,height=500, template="simple_white",labels={
+    fig=px.line(imae2,width=1300,height=500, template="simple_white",labels={
                      "value": serie,
                      "variable": "Serie"
                  },x="Fecha", y=[serie,"Pronosticado", "-3 sigma","-2 sigma","-1 sigma", "3 sigma","2 sigma","1 sigma"], color_discrete_map={'-3 sigma': 'red', 
@@ -522,7 +522,7 @@ def display_value(serie, start_date, end_date):
     sectores=sectores.rename(columns={sectores.columns[0]: 'Variación interanual'})
     sectores=sectores.sort_values(by=["Variación interanual"], ascending=False)
     sectores["Color"] = np.where(sectores["Variación interanual"]<0, 'red', 'green')
-    fig2=px.bar(sectores, x="Variación interanual", y=sectores.index,width=1000,height=500, template="simple_white", 
+    fig2=px.bar(sectores, x="Variación interanual", y=sectores.index,width=1300,height=500, template="simple_white", 
                 labels={
                      "index": "Sector"},
                 title=f"Variación interanual a {fecha_sectores} por sector").update_traces(marker_color=sectores["Color"])
@@ -578,7 +578,7 @@ def display_value(start_date, end_date):
     tcm2["1 sigma"]=tcm2["Pronosticado"]+stdtc*1
     tcm2["2 sigma"]=tcm2["Pronosticado"]+stdtc*2
     tcm2["3 sigma"]=tcm2["Pronosticado"]+stdtc*3
-    fig=px.line(tcm2,width=1000,height=500, template="simple_white",labels={
+    fig=px.line(tcm2,width=1300,height=500, template="simple_white",labels={
                      "value": "Tipo de cambio",
                      "variable": "Serie",
         "Fecha2":"Fecha"
@@ -652,7 +652,7 @@ def display_value(start_date, end_date):
     remesas2["1 sigma"]=remesas2["Pronosticado"]+stdrem*1
     remesas2["2 sigma"]=remesas2["Pronosticado"]+stdrem*2
     remesas2["3 sigma"]=remesas2["Pronosticado"]+stdrem*3
-    fig=px.line(remesas2,width=1000,height=500, template="simple_white",labels={
+    fig=px.line(remesas2,width=1300,height=500, template="simple_white",labels={
                      "value": "Remesas",
                      "variable": "Serie"
                  },x="Fecha", y=["Remesas","Pronosticado", "-3 sigma","-2 sigma","-1 sigma", "3 sigma","2 sigma","1 sigma"], color_discrete_map={'-3 sigma': 'red', 
