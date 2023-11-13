@@ -5,6 +5,5 @@ dash_bootstrap_components
 datetime
 scipy
 numpy
-locale
 openpyxl
 gunicorn
