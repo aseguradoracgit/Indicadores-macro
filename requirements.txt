@@ -3,7 +3,6 @@ plotly.express
 pandas
 dash_bootstrap_components
 datetime
-dateutil
 scipy
 numpy
 locale
