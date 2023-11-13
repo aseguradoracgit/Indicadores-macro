@@ -3,7 +3,6 @@ plotly.express
 pandas
 dash_bootstrap_components
 datetime
-pandas.tseries.offsets
 base64
 plotly.graph_objects
 dateutil.relativedelta
