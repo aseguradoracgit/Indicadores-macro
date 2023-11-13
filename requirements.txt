@@ -1,0 +1,16 @@
+dash
+dash.dependencies
+plotly.express
+pandas
+dash_bootstrap_components
+datetime
+plotly.io
+pandas.tseries.offsets
+base64
+plotly.graph_objects
+dateutil.relativedelta
+scipy.stats
+numpy
+locale
+openpyxl
+gunicorn
