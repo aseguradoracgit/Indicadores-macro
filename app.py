@@ -15,9 +15,9 @@ import plotly.graph_objects as go
 from dateutil.relativedelta import relativedelta
 from scipy.stats import linregress
 import numpy as np
-import locale
+#import locale
 
-locale.setlocale(locale.LC_ALL, 'es_ES')
+#locale.setlocale(locale.LC_ALL, 'es_ES')
 
 tasa = pd.read_excel('Datos macro.xlsx', sheet_name="Q")
 tasa=tasa.iloc[:, :6]
