@@ -405,7 +405,8 @@ def display_value(opcion, start_date, end_date):
     inf2=inflacion[(inflacion["Fecha"].dt.date>=(datetime.datetime.strptime(start_date, '%Y-%m-%d').date() )) &
                         (inflacion["Fecha"].dt.date<=(datetime.datetime.strptime(end_date, '%Y-%m-%d').date() ))]
     
-    
+    inf3=inflacion[(inflacion["Fecha"].dt.year>=(datetime.datetime.strptime(start_date, '%Y-%m-%d').date().year )) &
+                        (inflacion["Fecha"].dt.year<=(datetime.datetime.strptime(end_date, '%Y-%m-%d').date().year ))]
    
     
     if opcion=="Serie original":
@@ -415,7 +416,7 @@ def display_value(opcion, start_date, end_date):
         fig.add_hline(y=0.05, line_dash="dash", line_color="red",opacity=1, line_width=2)
         fig.layout.yaxis.tickformat = ',.2%'
     else: 
-        fig=px.line(inf2, x="Mes", y="Inflación", color="Año", markers=True, 
+        fig=px.line(inf3, x="Mes", y="Inflación", color="Año", markers=True, 
                 width=1300,height=500, template="simple_white")
         fig.add_hline(y=0.03, line_dash="dash", line_color="red",opacity=1, line_width=2)
         fig.add_hline(y=0.05, line_dash="dash", line_color="red",opacity=1, line_width=2)
